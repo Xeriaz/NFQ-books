@@ -38,10 +38,19 @@ if (isset($_POST['add_book'])) {
 		$genre = $_POST['genre'];
 	}
 
-	if (empty($_POST['image'])){
-		$image = "img/books/no-image.jpg";
-	} else {
-		$image = "img/books/" . $_POST['image'];
+	$images_dir = 'img/books/';
+	$image = $images_dir . 'no-image.jpg';
+
+	if (isset($_FILES['image'])) {
+		$_image = $_FILES['image'];
+
+		if (getimagesize($_image["tmp_name"])) {
+			$target_file = $images_dir . basename($_image["name"]);
+
+			if (move_uploaded_file($_image["tmp_name"], $target_file)) {
+		    	$image = $target_file;
+		    }
+		}
 	}
 
 	if($check == true) {
@@ -55,7 +64,7 @@ if (isset($_POST['add_book'])) {
 ?>
 
 <h3>Knygos pridėjimas</h3>
-	<form method="post" class="form-horizontal">
+	<form method="post" class="form-horizontal" enctype="multipart/form-data">
 		<div class="form-group">
 			<label class="control-label col-sm-2">Pavadinimas</label>
 			<div class="col-sm-10">
