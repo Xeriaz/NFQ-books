@@ -32,7 +32,7 @@ include 'header.php';
 		while ($row = $result->fetch_assoc()) {
 			$j = $from + $i;
 			echo '<li class="list-group-item">';
-			echo $j . ". " . "<a href='info.php?id=".$row['id']."'>" . $row['title'] . " – " .$row['author'] . "</a> </li>";
+			echo $j . ". " . "<a href='info.php?id=".$row['id']."'>" . strip_tags($row['title']) . " – " . strip_tags($row['author']) . "</a> </li>";
 			$i++;
 		}
 		echo '</ul>';

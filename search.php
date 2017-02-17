@@ -39,7 +39,7 @@ if(isset($_GET['title_search'])) {
 				echo '<li class="list-group-item">';
 				$j = $page * PER_PAGE - PER_PAGE + $i;
 				echo $j . ". ";
-				echo "<a href='info.php?id=".$row['id']."'>" . $row['title'] . " — " . $row['author'] . "</a> </li>" ;
+				echo "<a href='info.php?id=".$row['id']."'>" . strip_tags($row['title']) . " — " . strip_tags($row['author']) . "</a> </li>" ;
 				$i++;
 			}
 			echo "</ul>";

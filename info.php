@@ -12,12 +12,12 @@
 			<img src="<?=$row['image']?>"  width="200px" class="media-object">
 		</div>
 		<div class="media-body">
-			<h3 class="media-heading"><?=$row['title']?></h3>
+			<h3 class="media-heading"><?=strip_tags($row['title'])?></h3>
 			<p>	
 				<ul class="list-group">
-					<li class="list-group-item"><b>Autorius:</b> <?=$row['author']?></li>
-					<li class="list-group-item"><b>Išleidimo metai:</b> <?=$row['release_date']?></li>
-					<li class="list-group-item"><b>Žanras:</b> <?=$row['genre']?></li>
+					<li class="list-group-item"><b>Autorius:</b> <?=strip_tags($row['author'])?></li>
+					<li class="list-group-item"><b>Išleidimo metai:</b> <?=strip_tags($row['release_date'])?></li>
+					<li class="list-group-item"><b>Žanras:</b> <?=strip_tags($row['genre'])?></li>
 				</ul>
 			</p>
 		</div>
